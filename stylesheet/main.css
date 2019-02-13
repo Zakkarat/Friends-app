@@ -12,7 +12,7 @@ body {
 }
  header {
    margin: 0;
-   background-color: black;
+   background-color: #362d92;
    width: 100%;
    min-height:115px;
    height: 10%;
@@ -22,14 +22,35 @@ body {
  }
  h1 {
    margin-top: 0;
-   margin-left: 1%;
+   margin-left: 4%;
+ }
+ main {
+   display: flex;
+   flex-wrap: wrap;
  }
 .card {
-  width: 15%;
+  width: 20%;
   height: 330px;
+  display: flex;
   background-color: white;
-  margin-top: 1.5%;
+  margin-top: 4%;
   margin-left: 4%;
+  font-family: Roboto;
   border-radius: 5px;
   box-shadow: 8px 8px 15px #c5c6d4;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card > img {
+  border-radius: 100%;
+}
+.card > h1 {
+  margin-bottom: 5%;
+  margin-left: 0;
+}
+
+h2, h3, h4 {
+  margin-top: 0;
+  margin-bottom: 7px;
 }
