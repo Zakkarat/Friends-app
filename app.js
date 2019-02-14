@@ -14,7 +14,7 @@ fetch('https://randomuser.me/api/?results=30')
 
 function AddCard(data) {
   people = data.results;
-  people = noMuslim(people);
+  people = noSymbols(people);
   people.forEach(function(info) {
     CapitalNames(info);
     info.location.city = CapitalFirst(info.location.city);
@@ -37,9 +37,10 @@ function CapitalNames(info) {
   info.name.first = CapitalFirst(info.name.first);
   info.name.last = CapitalFirst(info.name.last);
 }
-function noMuslim(people) {
+
+function noSymbols(people) {
     let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
 "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    people = people.filter(info => info.name.first.charAt(0) != alphabet.map(letter => letter));
+    people = people.filter(info => alphabet.some(letter => letter == info.name.first.charAt(0)));
     return people;
 }
