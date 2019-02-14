@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #efefef;
+  background-color: #383b9238;
 }
 html {
   width: 100%;
@@ -30,10 +30,10 @@ body {
  }
 .card {
   width: 20%;
-  height: 330px;
+  height: 400px;
   display: flex;
   background-color: white;
-  margin-top: 4%;
+  margin-top: 1.4%;
   margin-left: 4%;
   font-family: Roboto;
   border-radius: 5px;
@@ -46,7 +46,7 @@ body {
   border-radius: 100%;
 }
 .card > h1 {
-  margin-bottom: 5%;
+  margin-bottom: 1%;
   margin-left: 0;
 }
 
