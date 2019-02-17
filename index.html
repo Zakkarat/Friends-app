@@ -11,11 +11,19 @@
       <header>
           <h1>Friends App</h1>
         <div class="filterContainer">
-          <div class="searchDec"><input type="text" name="Search" placeholder="Search" class="search"></div>
+          <div class="filterDec"><button type="submit" id="filter" class="filter" >Filter</button></div>
+          <br>
+          <div class="searchDec"><input type="text" onkeyup="search(people)" id="search" name="Search" placeholder="Search" class="search" /></div>
         </div>
       </header>
       <main>
       </main>
+      <div class="modal">
+      <div class="modal-content">
+        <h2>Congratulations!</h2>
+        <button type="button" name="button"><h2>Try again!</h2></button>
+      </div>
+    </div>
       <br>
       <script type="text/javascript" src="./app.js"></script>
   </body>

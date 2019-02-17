@@ -1,21 +1,26 @@
 const img = document.getElementById("imag");
 const main = document.getElementsByTagName("main")[0];
+const filter = document.getElementById("filter");
+const modalWindow = document.getElementsByClassName("modal")[0];
+const modalContent = document.getElementsByClassName("modal-content")[0];
+let staticPeople;
 let people;
 
-fetch('https://randomuser.me/api/?results=30')
+fetch('https://randomuser.me/api/?results=30&nat=us')
                                 .then(function(response){
                                   if(response.ok){
                                     return response.json();
                                   }
                                 })
                                 .then(function(data) {
-                                  AddCard(data);
+                                  staticPeople = data.results;
+                                  AddCard(staticPeople);
                                 });
 
-function AddCard(data) {
-  people = data.results;
-  people = noSymbols(people);
-  people.forEach(function(info) {
+filter.addEventListener("click", popUp());
+
+function AddCard(people) {
+    people.forEach(function(info) {
     CapitalNames(info);
     info.location.city = CapitalFirst(info.location.city);
     main.innerHTML += `<div class="card">
@@ -38,9 +43,18 @@ function CapitalNames(info) {
   info.name.last = CapitalFirst(info.name.last);
 }
 
-function noSymbols(people) {
-    let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
-"q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    people = people.filter(info => alphabet.some(letter => letter == info.name.first.charAt(0)));
-    return people;
+function search(info){
+  let search = new RegExp(document.getElementById("search").value, "ig");
+  people = staticPeople.filter(char => char.name.first.toLowerCase().match(search) || char.name.last.toLowerCase().match(search))
+  render(people);
+}
+
+function render(filtered) {
+  main.innerHTML = ""
+  AddCard(filtered);
+}
+
+function popUp() {
+  modalWindow.classList.toggle("modal-up");
+  modalContent.classList.toggle("modal-content-up");
 }

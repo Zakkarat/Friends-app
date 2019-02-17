@@ -10,6 +10,18 @@ body {
   width: 100%;
   height: 100%;
 }
+
+h2, h3, h4 {
+  margin-top: 0;
+  margin-bottom: 7px;
+}
+
+ h1 {
+   margin-top: 0;
+   margin-left: 4%;
+ }
+
+/*                 HEADER STUFF             */
  header {
    margin: 0;
    background-color: #362d92;
@@ -26,7 +38,13 @@ body {
    margin-left: auto;
  }
 
+.searchDec > h2 {
+  font-family: Roboto;
+  font-size: 0.7em;
+}
+
  .filterContainer {
+  display: flex;
   align-self: center;
   margin-left: auto;
   margin-right: 4%;
@@ -44,7 +62,7 @@ body {
    transition: 0.5s;
  }
 
-.search:focus {
+.search:focus{
   border-radius: 30px;
   width: 230px;
   height: 50px;
@@ -52,7 +70,6 @@ body {
   font-size: 0.7em;
   color: black;
   background-color: white;
-  background-image: url(../img/search.png);
   border: solid 3px white;
   outline: 0;
   transition: 0.5s;
@@ -74,10 +91,34 @@ input:focus::placeholder {
   margin-left: 10px;
 }
 
- h1 {
-   margin-top: 0;
-   margin-left: 4%;
+
+ button {
+   align-self: flex-end;
  }
+
+.filterDec {
+  margin-right: 5%;
+}
+
+ .filter {
+   border-radius: 30px;
+   width: 105px;
+   height: 60px;
+   font-size: 0.7em;
+   color: white;
+   background-color: #362d92;
+   border: solid 3px white;
+   outline: 0;
+   transition: 0.5s;
+   cursor: pointer;
+ }
+
+ .filter:hover {
+   color: black;
+   background-color: white;
+ }
+
+ /*                 MAIN AND USER CARDS             */
  main {
    display: flex;
    flex-wrap: wrap;
@@ -104,11 +145,53 @@ input:focus::placeholder {
   margin-left: 0;
 }
 
-h2, h3, h4 {
-  margin-top: 0;
-  margin-bottom: 7px;
-}
+/*                 MODAL WINDOW                     */
+.modal {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
 
-button {
-  align-self: flex-end;
+  display: none;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  transition: 1.5s;
+
+  background-color: rgba(0,0,0,0.4);
+
+  font-family: Roboto;
+}
+.modal-content {
+  position: fixed;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 370px;
+  height: 140px;
+  margin-top: -100px;
+
+  color: white;
+  border-radius: 5px;
+  background-color: #032333;
+  box-shadow: 1px 1px 5px 1px #000;
+}
+.modal-up {
+  display : flex;
+
+  transition: 1.5s;
+}
+.modal-content-up {
+  margin-top: 348px;
+
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+.modal-content > h2 {
+  margin-top: 0;
 }
