@@ -3,6 +3,13 @@ const main = document.getElementsByTagName("main")[0];
 const filter = document.getElementById("filter");
 const modalWindow = document.getElementsByClassName("modal")[0];
 const modalContent = document.getElementsByClassName("modal-content")[0];
+const ascAplphabet = document.getElementById("ascAplphabet");
+const descAlphabet = document.getElementById("descAlphabet");
+const ascAge = document.getElementById("ascAge");
+const descAge = document.getElementById("descAge");
+const male = document.getElementById("male");
+const female = document.getElementById("female");
+const outer = document.querySelector("outerCont");
 let staticPeople;
 let people;
 
@@ -14,11 +21,34 @@ fetch('https://randomuser.me/api/?results=30&nat=us')
                                 })
                                 .then(function(data) {
                                   staticPeople = data.results;
+                                  people = staticPeople;
                                   AddCard(staticPeople);
                                 });
 
 filter.addEventListener("click", function() {popUp()});
 
+document.addEventListener("click", function() {genderFilter()});
+function ascAlphabet(){
+  let sortedArr = people.sort(function(a, b){
+      if(a.name.first < b.name.first) { return -1; }
+      else if(a.name.first > b.name.first) { return 1; }
+      else if(a.name.last < b.name.last) { return -1; }
+      else if(a.name.last > b.name.last) { return 1; }
+      return 0;
+  });
+  render(sortedArr);
+}
+function ascAgee(){
+  let sortedArr = people.sort(function(a, b){
+      return a.dob.age - b.dob.age;
+  });
+  render(sortedArr);
+}
+
+function genderFilter(){
+  let sortedArr = people.filter(elem => elem.gender == "male");
+    render(sortedArr);
+}
 function AddCard(people) {
     people.forEach(function(info) {
     CapitalNames(info);
@@ -53,6 +83,17 @@ function render(filtered) {
   main.innerHTML = ""
   AddCard(filtered);
 }
+
+function detectFunction(a) {
+  let target = a.target;
+  while (target != this) {
+  if (target.tagName == 'button') {
+    champAuto(target);
+    return;
+  }
+  target = target.parentNode;
+}}
+
 
 function popUp() {
   modalWindow.classList.toggle("modal-up");

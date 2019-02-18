@@ -193,6 +193,7 @@ input:focus::placeholder {
 }
 .modal-content > h1 {
   margin-top: 10px;
+  margin-left: 0;
 }
 .outerCont {
   width: 60%;
