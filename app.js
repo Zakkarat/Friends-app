@@ -17,7 +17,7 @@ fetch('https://randomuser.me/api/?results=30&nat=us')
                                   AddCard(staticPeople);
                                 });
 
-filter.addEventListener("click", popUp());
+filter.addEventListener("click", function() {popUp()});
 
 function AddCard(people) {
     people.forEach(function(info) {

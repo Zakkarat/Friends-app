@@ -170,15 +170,14 @@ input:focus::placeholder {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
 
-  width: 370px;
-  height: 140px;
+  width: 46%;
+  height: 70%;
   margin-top: -100px;
 
-  color: white;
+  color: black;
   border-radius: 5px;
-  background-color: #032333;
+  background-color: #d9dae8;
   box-shadow: 1px 1px 5px 1px #000;
 }
 .modal-up {
@@ -187,11 +186,45 @@ input:focus::placeholder {
   transition: 1.5s;
 }
 .modal-content-up {
-  margin-top: 348px;
+  margin-top: 9%;
 
   animation-name: animatetop;
   animation-duration: 0.4s;
 }
-.modal-content > h2 {
-  margin-top: 0;
+.modal-content > h1 {
+  margin-top: 10px;
+}
+.outerCont {
+  width: 60%;
+  height: 70%;
+  background-color: white;
+  border-radius: 5%;
+  box-shadow: 6px 6px 1px #00000047;
+}
+
+.innerCont {
+  width: 100%;
+  height: 33%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+.innerCont:last-child {
+  border: 0;
+}
+
+.buttonCont {
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-around;
+}
+.innerCont > h2 {
+  margin-top: 5%;
+}
+
+.buttonCont > button {
+  width: 100px;
+  height: 48px;
+  border-radius: 5px;
 }
