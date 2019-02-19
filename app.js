@@ -9,7 +9,7 @@ const ascAge = document.getElementById("ascAge");
 const descAge = document.getElementById("descAge");
 const male = document.getElementById("male");
 const female = document.getElementById("female");
-const outer = document.querySelector("outerCont");
+const outer = document.getElementsByClassName("outerCont")[0];
 let staticPeople;
 let people;
 
@@ -26,6 +26,8 @@ fetch('https://randomuser.me/api/?results=30&nat=us')
                                 });
 
 filter.addEventListener("click", function() {popUp()});
+
+outer.addEventListener("click", function(element) {detectFunction(element)});
 
 document.addEventListener("click", function() {genderFilter()});
 function ascAlphabet(){
@@ -86,8 +88,8 @@ function render(filtered) {
 
 function detectFunction(a) {
   let target = a.target;
-  while (target != this) {
-  if (target.tagName == 'button') {
+  while (target != outer) {
+  if (target.tagName == 'BUTTON') {
     champAuto(target);
     return;
   }
