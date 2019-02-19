@@ -3,13 +3,14 @@ const main = document.getElementsByTagName("main")[0];
 const filter = document.getElementById("filter");
 const modalWindow = document.getElementsByClassName("modal")[0];
 const modalContent = document.getElementsByClassName("modal-content")[0];
-const ascAplphabet = document.getElementById("ascAplphabet");
+const outer = document.getElementsByClassName("outerCont")[0];
+const ascAlphabet = document.getElementById("ascAplphabet");
 const descAlphabet = document.getElementById("descAlphabet");
 const ascAge = document.getElementById("ascAge");
 const descAge = document.getElementById("descAge");
 const male = document.getElementById("male");
 const female = document.getElementById("female");
-const outer = document.getElementsByClassName("outerCont")[0];
+const close = document.getElementById("close")
 let staticPeople;
 let people;
 
@@ -29,27 +30,36 @@ filter.addEventListener("click", function() {popUp()});
 
 outer.addEventListener("click", function(element) {detectFunction(element)});
 
-document.addEventListener("click", function() {genderFilter()});
-function ascAlphabet(){
-  let sortedArr = people.sort(function(a, b){
+function alphabet(target){
+  people = people.sort(function(a, b){
       if(a.name.first < b.name.first) { return -1; }
       else if(a.name.first > b.name.first) { return 1; }
       else if(a.name.last < b.name.last) { return -1; }
       else if(a.name.last > b.name.last) { return 1; }
       return 0;
   });
-  render(sortedArr);
+  if(target == descAlphabet){
+    people = people.reverse()
+  }
+  render(people);
 }
-function ascAgee(){
+function age(target){
   let sortedArr = people.sort(function(a, b){
       return a.dob.age - b.dob.age;
   });
+  if(target == descAge){
+    sortedArr = sortedArr.reverse()
+  }
   render(sortedArr);
 }
 
-function genderFilter(){
-  let sortedArr = people.filter(elem => elem.gender == "male");
-    render(sortedArr);
+function genderFilter(target){
+  if (target == male){
+  people = staticPeople.filter(elem => elem.gender == "male");
+} else {
+  people = staticPeople.filter(elem => elem.gender == "female");
+}
+    render(people);
 }
 function AddCard(people) {
     people.forEach(function(info) {
@@ -77,7 +87,7 @@ function CapitalNames(info) {
 
 function search(info){
   let search = new RegExp(document.getElementById("search").value, "ig");
-  people = staticPeople.filter(char => char.name.first.toLowerCase().match(search) || char.name.last.toLowerCase().match(search))
+  people = people.filter(char => char.name.first.toLowerCase().match(search) || char.name.last.toLowerCase().match(search))
   render(people);
 }
 
@@ -90,7 +100,27 @@ function detectFunction(a) {
   let target = a.target;
   while (target != outer) {
   if (target.tagName == 'BUTTON') {
-    champAuto(target);
+    switch(target) {
+      case ascAlphabet:
+      case descAlphabet:
+      alphabet(target);
+      break;
+      case ascAge:
+      case descAge:
+      age(target);
+      break;
+      case male:
+      case female:
+      genderFilter(target);
+      break;
+      case reset:
+      render(staticPeople);
+      people = staticPeople;
+      break;
+      case close:
+      popUp();
+      break;
+    }
     return;
   }
   target = target.parentNode;
