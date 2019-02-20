@@ -85,7 +85,7 @@ function CapitalNames(info) {
   info.name.last = CapitalFirst(info.name.last);
 }
 
-function search(info){
+function search(people){
   let search = new RegExp(document.getElementById("search").value, "ig");
   people = people.filter(char => char.name.first.toLowerCase().match(search) || char.name.last.toLowerCase().match(search))
   render(people);
