@@ -220,6 +220,9 @@ input:focus::placeholder {
 .innerCont:last-child > .buttonCont > button {
   margin-right: 7%;
 }
+.innerCont:first-child {
+    display: none;
+}
 
 .buttonCont {
   margin-top: 3%;
@@ -258,7 +261,8 @@ input:focus::placeholder {
 
 @media screen and (max-width: 450px) {
   header > h1{
-    font-size: 1em;
+    font-size: 1.5em;
+    margin-top: 4%;
   }
  .search:focus{
    border-radius: 30px;
@@ -273,6 +277,7 @@ input:focus::placeholder {
    transition: 0.5s;
  }
  .search {
+   display: none;
    border-radius: 30px;
        width: 73%;
        height: 34px;
@@ -284,8 +289,110 @@ input:focus::placeholder {
        outline: 0;
        transition: 0.5s;
  }
+ .searchMobDec {
+       border-radius: 30px;
+       width: 73%;
+       height: 34px;
+       padding-left: 13px;
+       font-size: 0.6em;
+       color: black;
+       background-color: #362d92;
+       border: solid 3px #8a8b9a;
+       outline: 0;
+       transition: 0.5s;
+ }
+ .searchMob {
+    border-radius: 30px;
+    width: 73%;
+    height: 34px;
+    padding-left: 13px;
+    font-size: 0.6em;
+    color: black;
+    outline: 0;
+    transition: 0.5s;
+ }
+ .searchMob:focus {
+   border-radius: 30px;
+   width: 50%;
+   height: 34px;
+   padding: 0 80px 0 20px;
+   font-size: 0.5em;
+   color: black;
+   background-color: white;
+   border: solid 3px white;
+   outline: 0;
+   transition: 0.5s;
+ }
  .card {
      margin-left: 0;
+     margin-top: 6%;
  }
+ main{
+   justify-content: center;
+ }
+ .modal {
+   position: fixed;
+   z-index: 1;
+   top: 0;
+   left: 0;
 
+   display: none;
+   justify-content: center;
+
+   width: 100%;
+   height: 100%;
+
+   transition: 1.5s;
+
+   background-color: rgba(0,0,0,0.4);
+
+   font-family: Roboto;
+ }
+ .modal-content {
+   position: fixed;
+
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+
+   width: 100%;
+   height: 100%;
+   margin-top: -100px;
+
+   color: black;
+   border-radius: 5px;
+ }
+ .modal-up {
+   display : flex;
+
+   transition: 1.5s;
+ }
+ .modal-content-up {
+  margin-top:0;
+
+   animation-name: animatetop;
+   animation-duration: 0.4s;
+ }
+ .modal-content > h1 {
+   margin-top: 10px;
+   margin-left: 0;
+ }
+ .outerCont {
+   width: 100%;
+   height: 100%;
+   background-color: white;
+   border-radius: 0;
+   box-shadow: 6px 6px 1px #00000047;
+ }
+ .innerCont {
+   width: 100%;
+   height: 21%;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   border-bottom: 1px solid #898b99;
+ }
+ .innerCont:first-child {
+  display: flex;
+ }
 }
