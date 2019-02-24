@@ -12,6 +12,7 @@ const male = document.getElementById("male");
 const female = document.getElementById("female");
 const close = document.getElementById("close");
 const searcher = document.getElementById("searchMob");
+const headerPopup = document.getElementsByClassName("headerMenu")[0];
 let staticPeople;
 let people;
 fetch("https://randomuser.me/api/?results=30&nat=us")
@@ -30,7 +31,7 @@ filter.addEventListener("click", function() {
   popUp();
 });
 
-modalWindow.addEventListener("click", function(element) {
+headerPopup.addEventListener("click", function(element) {
   detectFunction(element);
 });
 
@@ -147,6 +148,5 @@ function detectFunction(a) {
   }
 
 function popUp() {
-  modalWindow.classList.toggle("modal-up");
-  modalContent.classList.toggle("modal-content-up");
+  headerPopup.classList.toggle("header-up");
 }

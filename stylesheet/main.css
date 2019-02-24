@@ -134,6 +134,49 @@ main {
   background-color: rgba(0, 0, 0, 0.4);
   font-family: Roboto;
 }
+
+
+.headerMenu {
+  font-family: Roboto;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -300%;
+  width: 100%;
+  min-height: 115px;
+  height: 10%;
+  background-color: #362d92;
+  color: white;
+  display: flex;
+  transition: 0.5s;
+}
+.innerMenu {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.innerMenu > h2 {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.innerMenu:last-child > .buttonCont {
+  align-self: center;
+  margin: auto;
+}
+.innerMenu:last-child > .buttonCont > button {
+  margin-right: 5%;
+}
+.buttonCont {
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-around;
+}
+.header-up {
+  margin-top: 0;
+}
 .modal-content {
   position: fixed;
 
@@ -187,43 +230,39 @@ main {
 .searchMobDec {
   border-radius: 30px;
   width: 73%;
-  height: 34px;
+  height: 43px;
   padding-left: 13px;
   font-size: 0.6em;
   color: black;
   background-color: white;
-  border: solid 3px #8a8b9a;
+  border: 0;
   outline: 0;
   transition: 0.5s;
 }
 .searchMob {
   border-radius: 30px;
   width: 73%;
-  height: 34px;
+  height: 43px;
   padding-left: 13px;
   font-size: 1em;
   color: black;
   outline: 0;
   transition: 0.5s;
+  border: 0;
 }
 .innerCont:last-child {
   border: 0;
   height: 10%;
   align-items: flex-end;
 }
-.innerCont:last-child > .buttonCont > button {
+/*.innerCont:last-child > .buttonCont > button {
   margin-right: 16%;
 }
 
 .innerCont:last-child > .buttonCont {
   align-items: center;
-}
+}*/
 
-.buttonCont {
-  margin-top: 3%;
-  display: flex;
-  justify-content: space-around;
-}
 .innerCont > h2 {
   margin-top: 5%;
 }
@@ -236,7 +275,7 @@ main {
   outline: 0;
   color: #1f2056;
   background-color: white;
-  border: 2px solid #8a8b9a;
+  border: 0;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -249,7 +288,7 @@ main {
   outline: 0;
   color: #1f2056;
   background-color: white;
-  border: 4px solid #545aad;
+  border: 0;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -373,5 +412,40 @@ main {
   }
   .innerCont {
     height: 22%;
+  }
+}
+
+@media screen and (max-width: 945px) {
+  .headerMenu {
+    height: 40%;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .innerMenu {
+    width: 30%;
+    height: 50%;
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .headerMenu {
+    height: 100%;
+    align-items: center;
+  }
+  .innerMenu {
+    width: 60%;
+    height: 20%;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 335px) {
+  .innerMenu {
+    width: 80%;
+    height: 20%;
+    justify-content: space-around;
   }
 }
