@@ -121,20 +121,6 @@ main {
 }
 
 /*                 MODAL WINDOW                     */
-.modal {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  display: none;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  transition: 1.5s;
-  background-color: rgba(0, 0, 0, 0.4);
-  font-family: Roboto;
-}
-
 
 .headerMenu {
   font-family: Roboto;
@@ -177,56 +163,7 @@ main {
 .header-up {
   margin-top: 0;
 }
-.modal-content {
-  position: fixed;
 
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  width: 46%;
-  height: 70%;
-  margin-top: -100px;
-
-  color: black;
-  border-radius: 5px;
-}
-.modal-up {
-  display: flex;
-
-  transition: 1.5s;
-}
-.modal-content-up {
-  margin-top: 9%;
-
-  animation-name: animatetop;
-  animation-duration: 0.4s;
-}
-.modal-content > h1 {
-  margin-top: 10px;
-  margin-left: 0;
-}
-.outerCont {
-  width: 60%;
-  height: 88%;
-  min-height: 600px;
-  background-color: white;
-  min-width: 425px;
-  border-radius: 5%;
-  box-shadow: 6px 6px 1px #00000047;
-}
-
-.innerCont {
-  width: 100%;
-  height: 22%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  border-bottom: 1px solid #898b99;
-}
-.innerCont:first-child {
-  display: flex;
-}
 .searchMobDec {
   border-radius: 30px;
   width: 73%;
@@ -249,22 +186,6 @@ main {
   outline: 0;
   transition: 0.5s;
   border: 0;
-}
-.innerCont:last-child {
-  border: 0;
-  height: 10%;
-  align-items: flex-end;
-}
-/*.innerCont:last-child > .buttonCont > button {
-  margin-right: 16%;
-}
-
-.innerCont:last-child > .buttonCont {
-  align-items: center;
-}*/
-
-.innerCont > h2 {
-  margin-top: 5%;
 }
 
 .buttonCont > button {
@@ -322,66 +243,6 @@ main {
   .card {
     margin-top: 6%;
   }
-  .modal {
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    display: none;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    transition: 1.5s;
-    background-color: rgba(0, 0, 0, 0.4);
-    font-family: Roboto;
-  }
-  .modal-content {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
-    width: 100%;
-    height: 100%;
-    margin-top: -100px;
-
-    color: black;
-    border-radius: 5px;
-  }
-  .modal-up {
-    display: flex;
-
-    transition: 1.5s;
-  }
-  .modal-content-up {
-    margin-top: 0;
-  }
-  .modal-content > h1 {
-    margin-top: 10px;
-    margin-left: 0;
-  }
-  .outerCont {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    border-radius: 0;
-    box-shadow: 6px 6px 1px #00000047;
-  }
-  .innerCont {
-    width: 100%;
-    height: 22%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border-bottom: 1px solid #898b99;
-  }
-  .innerCont:first-child {
-    display: flex;
-  }
-  .innerCont:last-child {
-    display: flex;
-    justify-content: center;
-  }
 }
 @media screen and (max-width: 375px) {
   header > h1 {
@@ -397,22 +258,6 @@ main {
   .card {
     margin-top: 6%;
   }
-  .outerCont {
-    width: 100%;
-    height: 77%;
-  }
-  .innerCont:first-child {
-    display: flex;
-  }
-}
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .outerCont {
-    width: 100%;
-    height: 67%;
-  }
-  .innerCont {
-    height: 22%;
-  }
 }
 
 @media screen and (max-width: 945px) {
@@ -426,6 +271,9 @@ main {
     width: 30%;
     height: 50%;
   }
+  .innerMenu:last-child {
+    height: 100%;
+  }
   .container {
     width: 100%;
     height: 100%;
@@ -435,6 +283,10 @@ main {
   .headerMenu {
     height: 100%;
     align-items: center;
+    position: fixed;
+  }
+  .innerMenu:last-child {
+    height: 20%;
   }
   .innerMenu {
     width: 60%;
