@@ -166,6 +166,7 @@ main {
 .outerCont {
   width: 60%;
   height: 88%;
+  min-height: 600px;
   background-color: white;
   min-width: 425px;
   border-radius: 5%;
